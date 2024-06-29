@@ -1,4 +1,6 @@
 @echo off
+REM Configure 3 mongo replicas
+docker-compose -f docker-compose.mongo.yml up -d
 REM Stop the container if running, ignore errors if not found
 docker stop mapping-connect-backend || true
 REM Remove the container if it exists, ignore errors if not found
