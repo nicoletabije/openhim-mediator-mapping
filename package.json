@@ -1,0 +1,60 @@
+{
+  "name": "openhim-mediator-generic-mapper",
+  "version": "3.3.0",
+  "description": "Generic Mapping Mediator",
+  "repository": "git@github.com:jembi/openhim-mediator-mapping.git",
+  "author": "Jembi Health Systems NPC",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
+    "test": "NODE_ENV='test' MONGO_URL='mongodb://localhost:27017/test' DYNAMIC_ENDPOINTS=false OPENHIM_REGISTER=false tap tests/**/*.js && npm run lint",
+    "test:integration": "NODE_ENV='test' DYNAMIC_ENDPOINTS=false OPENHIM_REGISTER=false tap tests/integration/*.js && npm run lint",
+    "test:unit": "NODE_ENV='test' MONGO_URL='mongodb://localhost:27017/test' DYNAMIC_ENDPOINTS=false tap tests/unit/*.js && npm run lint",
+    "test:watch": "NODE_ENV='test' MONGO_URL='mongodb://localhost:27017/test' DYNAMIC_ENDPOINTS=false OPENHIM_REGISTER=false tap tests/**/*.js --watch",
+    "coverage": "tap --coverage-report=text-lcov > coverage.lcov && codecov"
+  },
+  "tap": {
+    "nyc-arg": [
+      "--exclude=tests/utils.js"
+    ]
+  },
+  "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "@viweei/koa-body-parser": "^1.0.2",
+    "ajv": "^6.10.2",
+    "ajv-errors": "^1.0.1",
+    "axios": "^0.21.1",
+    "codecov": "^3.7.1",
+    "dotenv": "^10.0.0",
+    "jsonata": "^1.8.3",
+    "kafkajs": "2.2.2",
+    "koa": "^2.11.0",
+    "koa-router": "^8.0.8",
+    "luxon": "^1.23.0",
+    "mongoose": "^5.9.13",
+    "object-mapper": "jembi/node-object-mapper",
+    "openhim-mediator-utils": "^0.2.3",
+    "pino": "^6.2.1",
+    "pino-pretty": "^4.0.0",
+    "uuid": "^8.0.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "nock": "^12.0.3",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.5",
+    "rewire": "^5.0.0",
+    "sinon": "^9.0.1",
+    "supertest": "^4.0.2",
+    "tap": "^14.10.7"
+  }
+}

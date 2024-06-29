@@ -1,0 +1,15 @@
+node_modules
+.nyc_output
+coverage.lcov
+*.code-workspace
+
+# production
+/docs/build
+
+# generated files
+/docs/.docusaurus
+/docs/.cache-loader
+
+# dotenv environment variables file
+.env
+.env.test
